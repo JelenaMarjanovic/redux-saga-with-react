@@ -1,4 +1,6 @@
 import React, {Component} from 'react';
+import {connect} from 'react-redux';
+import {getUsersRequest} from '../actions/users';
 
 class App extends Component {
   render() {
@@ -10,4 +12,6 @@ class App extends Component {
   }
 }
 
-export default App;
+export default connect(({users}) => ({users}), {
+  getUsersRequest
+})(App);
