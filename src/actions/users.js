@@ -7,9 +7,9 @@ export const getUsersRequest = () => ({
   type: Types.GET_USERS_REQUEST
 });
 
-export const getUsersSuccess = ({items}) => ({
+export const getUsersSuccess = ({ users }) => ({
   type: Types.GET_USERS_SUCCESS,
   payload: {
-    items
+    users
   }
 });
