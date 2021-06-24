@@ -7,7 +7,7 @@ export const getUsersRequest = () => ({
   type: Types.GET_USERS_REQUEST
 });
 
-export const getUsersSuccess = ({ users }) => ({
+export const getUsersSuccess = ({users}) => ({
   type: Types.GET_USERS_SUCCESS,
   payload: {
     users
