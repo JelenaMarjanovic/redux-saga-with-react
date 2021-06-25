@@ -3,16 +3,17 @@ import {connect} from 'react-redux';
 import {getUsersRequest} from '../actions/users';
 
 import UsersList from './UsersList';
+import AddUserForm from './AddUserForm';
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   componentDidMount() {
-    const { getUsersRequest } = this.props;
+    const {getUsersRequest} = this.props;
 
     getUsersRequest();
+  }
+
+  handleSubmit = ({firstName, lastName}) => {
+    console.log(firstName, lastName);
   }
 
   render() {
@@ -20,7 +21,9 @@ class App extends Component {
 
     return (
       <div style={{margin: '0 auto', padding: '20px', maxWidth: '600px'}}>
-        <UsersList users={users.users} />
+        <h1 style={{textAlign: 'center'}}>Users</h1>
+        <AddUserForm onSubmit={this.handleSubmit}/>
+        <UsersList users={users.users}/>
       </div>
     );
   }
