@@ -5,5 +5,12 @@ export const getUsers = () => {
     params: {
       limit: 1000
     }
-  })
-}
+  });
+};
+
+export const createUser = ({firstName, lastName}) => {
+  return axios.post('/users', {
+    firstName,
+    lastName
+  });
+};
