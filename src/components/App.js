@@ -6,10 +6,10 @@ import UsersList from './UsersList';
 import AddUserForm from './AddUserForm';
 
 class App extends Component {
-  componentDidMount() {
-    const {getUsersRequest} = this.props;
+  constructor(props) {
+    super(props);
 
-    getUsersRequest();
+    this.props.getUsersRequest();
   }
 
   handleSubmit = ({firstName, lastName}) => {
