@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {getUsersRequest, createUserRequest} from '../actions/users';
+import {getUsersRequest, createUserRequest, deleteUserRequest} from '../actions/users';
 
 import UsersList from './UsersList';
 import AddUserForm from './AddUserForm';
@@ -12,10 +12,12 @@ class App extends Component {
     this.props.getUsersRequest();
   }
 
-  handleSubmit = ({firstName, lastName}) => {
-    const {createUserRequest} = this.props;
+  handleDeleteUser = (userId) => {
+    this.props.deleteUserRequest(userId);
+  }
 
-    createUserRequest({firstName, lastName});
+  handleSubmit = ({firstName, lastName}) => {
+    this.props.createUserRequest({firstName, lastName});
   }
 
   render() {
@@ -25,7 +27,7 @@ class App extends Component {
       <div style={{margin: '0 auto', padding: '20px', maxWidth: '600px'}}>
         <h1 style={{textAlign: 'center'}}>Users</h1>
         <AddUserForm onSubmit={this.handleSubmit}/>
-        <UsersList users={users.users}/>
+        <UsersList users={users.users} onDeleteUser={this.handleDeleteUser}/>
       </div>
     );
   }
@@ -33,5 +35,6 @@ class App extends Component {
 
 export default connect(({users}) => ({users}), {
   getUsersRequest,
-  createUserRequest
+  createUserRequest,
+  deleteUserRequest
 })(App);
