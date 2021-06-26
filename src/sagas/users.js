@@ -24,7 +24,7 @@ function* createUser({payload}) {
       firstName,
       lastName
     });
-    yield(getUsers);
+    yield call(getUsers);
   } catch (e) {
 
   }
