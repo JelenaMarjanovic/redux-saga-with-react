@@ -19,7 +19,7 @@ const UsersList = ({users}) => {
       }).map(user => {
         return <ListGroupItem key={user.id}>
           <section style={{display: 'flex'}}>
-            <div style={{flexGrow: 1}}>
+            <div style={{flexGrow: 1, margin: 'auto 0'}}>
               {user.firstName} {user.lastName}
             </div>
             <div>
